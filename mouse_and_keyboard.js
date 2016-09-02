@@ -10,12 +10,22 @@ var FRAME_OF_REFERENCE = [0, 0];
 //Keyboard keys used in game
 var keys = {
 
-    W: false,
-    A: false,
-    S: false,
-    D: false,
-    T: false,
-    B: false,
+    //Alphabet
+    A: false, B: false,
+    C: false, D: false,
+    E: false, F: false,
+    G: false, H: false,
+    I: false, J: false,
+    K: false, L: false,
+    M: false, N: false,
+    O: false, P: false,
+    Q: false, R: false,
+    S: false, T: false,
+    U: false, V: false,
+    W: false, X: false,
+    Y: false, Z: false,
+
+    //Special Keys
     ENTER: false,
     SHIFT: false
 };
@@ -45,7 +55,6 @@ function mouseClick(e) {
 function mouseUnClick(e) {
 
   mouse.clicked = false;
-
 }
 function mousePos (e) {
 
@@ -77,6 +86,7 @@ function keyClick (e) {
   keyButton = getKeyPressed(e);
 
   if (keyButton == "X") { clearScreen(); }
+  if (keyButton == "Z") { undo(); }
   if (keyButton == "D") { keys.D = !keys.D; }
   if (keyButton == "D" && keys.D) { mouse.clickPos = [mouse.X, mouse.Y]; }
 
