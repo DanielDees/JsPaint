@@ -87,6 +87,7 @@ function keyClick (e) {
 
   if (keyButton == "X") { clearScreen(); }
   if (keyButton == "Z") { undo(); }
+  if (keyButton == "B") { keys.B = !keys.B; }
   if (keyButton == "D") { keys.D = !keys.D; }
   if (keyButton == "D" && keys.D) { mouse.clickPos = [mouse.X, mouse.Y]; }
 
