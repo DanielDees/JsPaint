@@ -181,7 +181,7 @@ function clearScreen() {
 }
 function drawScreen() {
 
-	ctx.clearRect(FRAME_OF_REFERENCE[0], FRAME_OF_REFERENCE[1], 1400, 800);
+	ctx.clearRect(FRAME_OF_REFERENCE[0], FRAME_OF_REFERENCE[1], canvas.width, canvas.height);
 
 	//Draw Ball
 	if (keys.B && brush.shape == "box") { 

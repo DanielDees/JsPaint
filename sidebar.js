@@ -92,6 +92,7 @@ var greenSlider = new slider(greenSliderData);
 
 function drawSidebar() {
 
+	ctx.clearRect(canvas.width - 200, 0, canvas.width, canvas.height);
 	ctx.fillStyle = "#FFF";
 	ctx.fillRect(canvas.width - 200, 0, 3, canvas.height);
 
