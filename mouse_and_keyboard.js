@@ -90,6 +90,7 @@ function keyClick (e) {
   if (keyButton == "B") { keys.B = !keys.B; }
   if (keyButton == "D") { keys.D = !keys.D; }
   if (keyButton == "D" && keys.D) { mouse.clickPos = [mouse.X, mouse.Y]; }
+  if (keyButton == "E") { keys.E = !keys.E; }
 
   if (e.shiftKey) { keys.SHIFT = true; } else { keys.SHIFT = false; }
 

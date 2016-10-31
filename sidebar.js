@@ -26,6 +26,9 @@ function slider(data) {
   			if (this.value > 255) { this.value = 255; }
   		}
 
+  		//Eraser
+  		if (keys.E && this.color != "#FFF") { this.value = 0; };
+
   	}
 	this.draw = function() {
 
