@@ -104,4 +104,34 @@ function drawSidebar() {
 	blueSlider.draw();
 	greenSlider.draw();
 
+	if (keys.E) { 
+
+		ctx.fillStyle = "#FFF";
+		ctx.fillText("Erase Mode ON", canvas.width - 180, canvas.height - 100); 
+	}
+	if (!keys.E) { 
+
+		ctx.fillStyle = "#FFF";
+		ctx.fillText("Erase Mode OFF", canvas.width - 180, canvas.height - 100); 
+	}
+	if (brush.drag[0]) { 
+
+		ctx.fillStyle = "#FFF";
+		ctx.fillText("Drag Mode ON", canvas.width - 180, canvas.height - 130); 
+	}
+	if (!brush.drag[0]) { 
+
+		ctx.fillStyle = "#FFF";
+		ctx.fillText("Drag Mode OFF", canvas.width - 180, canvas.height - 130); 
+	}
+	if (brush.shape == "ball") {
+
+		ctx.fillStyle = "#FFF";
+		ctx.fillText("Shape: Circle", canvas.width - 180, canvas.height - 70); 
+	}
+	if (brush.shape == "box") {
+
+		ctx.fillStyle = "#FFF";
+		ctx.fillText("Shape: Square", canvas.width - 180, canvas.height - 70); 
+	}
 }
