@@ -85,6 +85,7 @@ function keyClick (e) {
 
   keyButton = getKeyPressed(e);
 
+  if (keyButton == "L") { changeLayer(); }
   if (keyButton == "X") { clearScreen(); }
   if (keyButton == "Z") { undo(); }
   if (keyButton == "B") { keys.B = !keys.B; }

@@ -134,4 +134,8 @@ function drawSidebar() {
 		ctx.fillStyle = "#FFF";
 		ctx.fillText("Shape: Square", canvas.width - 180, canvas.height - 70); 
 	}
+
+
+	ctx.fillStyle = "#FFF";
+	ctx.fillText("Layer: " + layer, canvas.width - 180, canvas.height - 160); 
 }

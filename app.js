@@ -9,7 +9,8 @@ ctx.imageSmoothingEnabled = false; /// future
 
 var GAME_FPS = 60;
 
-var shapeList = [];
+var layers = [[],[],[]]
+var layer = 0;
 
 var brush = {
 
@@ -22,6 +23,12 @@ var brush = {
 	drag: [false, 0],
 	crop: false,
 	delete: false,
+}
+
+function changeLayer() {
+
+	if (layer == 2) { layer = 0; }
+	else { layer++; }
 }
 
 //Tool
@@ -97,7 +104,7 @@ function paint() {
 		}
 
 		//Add new box
-		shapeList.push(new box(data));
+		layers[layer].push(new box(data));
 	}
 	else if (brush.paint && brush.shape == "ball") {
 
@@ -112,7 +119,7 @@ function paint() {
 		}
 
 		//Add new box
-		shapeList.push(new ball(data));
+		layers[layer].push(new ball(data));
 	}
 	else if (brush.drag[0] && brush.shape == "box") {
 
@@ -128,10 +135,10 @@ function paint() {
 		}
 
 		//Remove last box
-		if (brush.drag[1] == 1) { shapeList.pop(); }
+		if (brush.drag[1] == 1) { layers[layer].pop(); }
 
 		//Replace old box with current one
-		shapeList.push(new box(data));
+		layers[layer].push(new box(data));
 
 		//Prevent removal of boxes prior to dragged box
 		brush.drag[1] = 1;
@@ -149,10 +156,10 @@ function paint() {
 		}
 
 		//Remove last ball
-		if (brush.drag[1] == 1) { shapeList.pop(); }
+		if (brush.drag[1] == 1) { layers[layer].pop(); }
 
 		//Replace old ball with current one
-		shapeList.push(new ball(data));
+		layers[layer].push(new ball(data));
 
 		//Prevent removal of boxes prior to dragged ball
 		brush.drag[1] = 1;
@@ -162,22 +169,23 @@ function drawDebug() {
 
 	ctx.fillStyle = "#F00";
 	ctx.font = "26px Arial";
-	ctx.fillText("Polygons: " + shapeList.length, 30, 50);
+	ctx.fillText("Polygons: " + layers[0].length + layers[2].length + layers[2].length, 30, 50);
 }
 function draw() {
 
-	for (var i = 0; i < shapeList.length; i++) {
-		
-		shapeList[i].draw();	
+	for (var i = 0; i < layers.length; i++) {
+		for (var j = 0; j < layers[i].length; j++) {
+			layers[i][j].draw();
+		}		
 	}
 }
 function undo() {
 
-	shapeList.pop();
+	layers[layer].pop();
 }
 function clearScreen() {
 
-	shapeList = [];
+	layers[layer] = [];
 }
 function drawScreen() {
 
